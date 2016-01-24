@@ -68,8 +68,8 @@ var bodyParser = require('body-parser')
 // init database
 var db = new sqlite3.Database('mydb.db');
 db.serialize(function() {
-  db.run("DROP TABLE tasks");
-  db.run("CREATE TABLE if not exists tasks (id INTEGER PRIMARY KEY, title TEXT, description TEXT, deadline TEXT)");
+	db.run("DROP TABLE tasks");
+	db.run("CREATE TABLE if not exists tasks (id INTEGER PRIMARY KEY, title TEXT, description TEXT, deadline TEXT)");
 });
 
 
@@ -89,29 +89,29 @@ var validate = function(task) {
 		er.errorMessages.push("Description must be a string between 0 and 255 characters");
 	if (!validator.isISO8601(q.body.deadline)) 
 		er.errorMessages.push("Date must be ISO8601 formatted string!");
-	
+
 	return (er.errorMessages.length > 0) ? er : task;
 }
 
 app.head('/tasks.json', function(q, s) {
-  //s.send('Returns the number of tasks in the database as a header variable _X-Count_. The response doesn\'t return any body and returns 204 response code.');
-  db.get("SELECT COUNT(*) len FROM tasks", function(err, row) {
-	  if (err != undefined) console.log(err);
-	  var i = parseInt(row.len);
-	  console.log("HEAD /tasks.json :: X-Count: " + i);
-	  console.log("Body: " + s.body);
-	  console.log("");
-	  s.setHeader('X-Count', i);
-	  s.status(204);
-	  s.end();
-	  //s.send(new Buffer(0));
-  });
+	//s.send('Returns the number of tasks in the database as a header variable _X-Count_. The response doesn\'t return any body and returns 204 response code.');
+	db.get("SELECT COUNT(*) len FROM tasks", function(err, row) {
+		if (err != undefined) console.log(err);
+		var i = parseInt(row.len);
+		console.log("HEAD /tasks.json :: X-Count: " + i);
+		console.log("Body: " + s.body);
+		console.log("");
+		s.setHeader('X-Count', i);
+		s.status(204);
+		s.end();
+		//s.send(new Buffer(0));
+	});
 });
 
 app.options('/tasks.json', function(q, s) {
 	//s.send('Returns the supported methods for the current path as a header variable _Allow_. The response doesn\'t return any body and returns 204 response code. For more information check [RFC2616 Section 14](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).');
 	console.log('OPTIONS /tasks.json');
-    console.log("");
+	console.log("");
 	//s.setHeader('Allow', 'GET,HEAD,OPTIONS,POST,PUT,PATCH,DELETE');
 	s.setHeader('Allow', 'GET,HEAD,OPTIONS,POST');
 	s.status(204);
@@ -121,56 +121,55 @@ app.options('/tasks.json', function(q, s) {
 app.get('/tasks.json', function(q, s) {
 	//s.send('Returns an array of task JSON objects ordered by deadline. If no tasks are in database it needs to return an empty array.The response also needs to return a header with the number of all tasks in database named _X-Count_ and a response code of 200. The path also needs to implement two mechanisms. First mechanism is pagination. It\'s controlled using two query parameters _page_ and _pageSize_. Default value for _page_ is 1 and default value for _pageSize_ is 10. For example if a client would request the following path `GET /tasks.json?page=2&pageSize=15` the server would return tasks 15 to 30 after ordering by deadline. If the database would have less than 15 tasks the server would return an empty array. The second mechanism is search. It\'s controlled using the query parameter _q_. By default if _q_ isn\'t defined no search is executed. For instance if a client would request the following path `GET /tasks.json?q=this+that` the server would return at most 10 tasks that contain `this that` in their title and/or description. Again if there aren\'t any tasks with that search term the server returns an empty array. The search mechanism also needs to update the _X-Count_ header to represent the number of all tasks that contain the search term.');
 
-  var url_parts = url.parse(q.url, true);
+	var url_parts = url.parse(q.url, true);
 
   // get page
-  var page = parseInt(url_parts.query.page);
-  if (!page) page = 1;
-  
-  // get pageSize
-  var pageSize = parseInt(url_parts.query.pageSize);
-  if (!pageSize) pageSize = 10;
-  
-  // get q
-  var qry = "";
-  console.log("Q: " + url_parts.query.q);
-  if (url_parts.query.q != undefined) {
-	  //qry = url_parts.query.q.replace('\'', '\\\'');
-	  qry = url_parts.query.q.replace(/'/g, ''); // attempt escape injection
-	  console.log("Q:> " + qry);
-  }
-  
-  // build queries
-  var where = qry != "" ? " WHERE title LIKE '%" + qry + "%' OR description LIKE '%" + qry + "%'" : " ";
-  var limit = " LIMIT " + pageSize + " OFFSET " + ((page-1) * pageSize);
-  var sql = "SELECT id, title, description, deadline FROM tasks " + where + " ORDER BY date(deadline) DESC " + limit;
-  var sql_all = "SELECT COUNT(*) len FROM tasks " + where;
-  //returnValue.push({ q : sql, q_all : sql_all });
+	var page = parseInt(url_parts.query.page);
+	if (!page) page = 1;
 
-  // get "meta"data
-  db.get(sql_all, function(err, row) {
-	  if (err != undefined) console.log(err);
-	  var i = parseInt(row.len);
-	  console.log("GET /tasks.json :: X-Count: " + i);
-	  console.log("");
+	// get pageSize
+	var pageSize = parseInt(url_parts.query.pageSize);
+	if (!pageSize) pageSize = 10;
 
-	  // set headers acc. to metadata
-	  s.setHeader('X-Count', i);
-      s.status(200);
+	// get q
+	var qry = "";
+	console.log("Q: " + url_parts.query.q);
+	if (url_parts.query.q != undefined) {
+		//qry = url_parts.query.q.replace('\'', '\\\'');
+		qry = url_parts.query.q.replace(/'/g, ''); // attempt escape injection
+		console.log("Q:> " + qry);
+	}
 
-	  // get data
-	  db.all(sql, function(err1, row1) {
-		  if (err1) {
-			  s.send(err1);
-			  return;
-		  }
-		  s.json(row1);
-	  });
-  });
+	// build queries
+	var where = qry != "" ? " WHERE title LIKE '%" + qry + "%' OR description LIKE '%" + qry + "%'" : " ";
+	var limit = " LIMIT " + pageSize + " OFFSET " + ((page-1) * pageSize);
+	var sql = "SELECT id, title, description, deadline FROM tasks " + where + " ORDER BY date(deadline) DESC " + limit;
+	var sql_all = "SELECT COUNT(*) len FROM tasks " + where;
+	//returnValue.push({ q : sql, q_all : sql_all });
 
+	// get "meta"data
+	db.get(sql_all, function(err, row) {
+		if (err != undefined) console.log(err);
+		var i = parseInt(row.len);
+		console.log("GET /tasks.json :: X-Count: " + i);
+		console.log("");
+
+		// set headers acc. to metadata
+		s.setHeader('X-Count', i);
+		s.status(200);
+
+		// get data
+		db.all(sql, function(err1, row1) {
+			if (err1) {
+				s.send(err1);
+				return;
+			}
+			s.json(row1);
+		});
+	});
 });
 
-app.post('/tasks.json', function(q, s) {	
+app.post('/tasks.json', function(q, s) {
 	//s.send('This path needs to add a new task into the database. The request will contain a JSON task object. The server needs to validate that all properties are there and in the correct format. Title needs to be a string between 4 and 64 characters in length. Description also needs to be a string between 0 and 255 characters in length. Deadline needs to be a date string in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format. The path needs to return an error if the object requirements aren\'t met. Upon successful insertion into the database the path returns the new object back to the client.');
 	// log position
 	console.log("POST /tasks.json");
@@ -187,7 +186,7 @@ app.post('/tasks.json', function(q, s) {
 		db.run("INSERT INTO tasks (title, description, deadline) VALUES (?, ?, ?)", a.title, a.description, a.deadline, function(e, r) {
 			if (e) console.log(e);
 			console.log("Inserted with ID: " + this.lastID);
-            console.log("");
+			console.log("");
 			// this.changes !!!
 			a.id = this.lastID;
 			s.status(200).json(a);
@@ -199,7 +198,7 @@ app.options('/tasks/:taskid.json', function(q, s) {
 	// q.query.key
 	//s.send('Returns the supported methods for the current path as a header variable _Allow_. The response doesn\'t return any body and returns 204 response code. For more information check [RFC2616 Section 14](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).');
 	console.log('OPTIONS /tasks/' + q.params.taskid + '.json');
-    console.log("");
+	console.log("");
 	//s.setHeader('Allow', 'GET,HEAD,OPTIONS,POST,PUT,PATCH,DELETE');
 
 	var taskId = parseInt(q.params.taskid);
@@ -207,15 +206,14 @@ app.options('/tasks/:taskid.json', function(q, s) {
 	db.get(sql, taskId, function(er, r) {
 		if (er) console.log(er);
 		console.log(r);
-		var retVal = {};
-		
+
 		if (r != undefined) { // return task if found
 			s.setHeader('Allow', 'OPTIONS,GET,PUT,PATCH,DELETE');
 			s.status(204);
 			s.end();
 		}
 		else { // return error if not found
-			retVal = new error(404, "Task " + taskId + " does not exist!");
+			var retVal = new error(404, "Task " + taskId + " does not exist!");
 			s.status(404);
 			s.json(retVal);
 		}
@@ -245,7 +243,6 @@ app.get('/tasks/:taskid.json', function(q, s) {
 		}
 		s.json(retVal);
 	});
-
 });
 
 app.put('/tasks/:taskid.json', function(q, s) {
