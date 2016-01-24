@@ -7,12 +7,12 @@ Poleg zahtevanih orodij sem uporabil še:
 Kot sem zapisal že v mailu, bom zapisal nekaj toèk glede testne skripte tudi spodaj.
 Napake so take, da bi jih glede na izkušnje lahko pripisal razliki v OSu (delam na win).
 Drugih težav ni bilo. Za verbe sem natanèneje prebral navodila (da so vezani na path). 
-API je nastavljen na port 7000.
+API je nastavljen na port 8080.
 
 Poženi:
 "node main.js" ali "run" na win
-"python test.py http://localhost:7000/" ali "test" na win
-"python test.py http://localhost:7000/ -v" ali "testv" na win
+"python test.py http://localhost:8080/" ali "test" na win
+"python test.py http://localhost:8080/ -v" ali "testv" na win
 
 Komentarji:
 - Testna skripta ne prepozna praznega responsa
