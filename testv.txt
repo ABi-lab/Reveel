@@ -1,0 +1,308 @@
+
+E:\reveel\test>cls
+
+E:\reveel\test>python test.py http://localhost:7000/ -v 
+------------------------------------------------------------------
+[95m[1mEmpty database HEAD request[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks.json
+[95m[[4mINFO[0m[95m][0m Request method=HEAD
+[95m[[4mINFO[0m[95m][0m Response code=204
+[95m[[4mINFO[0m[95m][0m Response body=
+[95m[[4mINFO[0m[95m][0m Response headers={'Date': 'Sun, 24 Jan 2016 19:59:30 GMT', 'Connection': 'keep-alive', 'X-Count': '0', 'X-Powered-By': 'Express'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mOPTIONS request for /tasks.json[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks.json
+[95m[[4mINFO[0m[95m][0m Request method=OPTIONS
+[95m[[4mINFO[0m[95m][0m Response code=204
+[95m[[4mINFO[0m[95m][0m Response body=
+[95m[[4mINFO[0m[95m][0m Response headers={'Date': 'Sun, 24 Jan 2016 19:59:30 GMT', 'Connection': 'keep-alive', 'Allow': 'GET,HEAD,OPTIONS,POST', 'X-Powered-By': 'Express'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mEmpty GET request for /tasks.json[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks.json
+[95m[[4mINFO[0m[95m][0m Request method=GET
+[95m[[4mINFO[0m[95m][0m Response code=200
+[95m[[4mINFO[0m[95m][0m Response body=[]
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '2', 'X-Count': '0', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"2-11FxOYiYfpMxmANj4kGJzg"', 'Date': 'Sun, 24 Jan 2016 19:59:30 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mEmpty GET request for /tasks.json?q=test[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks.json?q=test
+[95m[[4mINFO[0m[95m][0m Request method=GET
+[95m[[4mINFO[0m[95m][0m Response code=200
+[95m[[4mINFO[0m[95m][0m Response body=[]
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '2', 'X-Count': '0', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"2-11FxOYiYfpMxmANj4kGJzg"', 'Date': 'Sun, 24 Jan 2016 19:59:30 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mEmpty GET request for /tasks.json?pageSize=13[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks.json?pageSize=13
+[95m[[4mINFO[0m[95m][0m Request method=GET
+[95m[[4mINFO[0m[95m][0m Response code=200
+[95m[[4mINFO[0m[95m][0m Response body=[]
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '2', 'X-Count': '0', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"2-11FxOYiYfpMxmANj4kGJzg"', 'Date': 'Sun, 24 Jan 2016 19:59:30 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mValid POST request[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks.json
+[95m[[4mINFO[0m[95m][0m Request method=POST
+[95m[[4mINFO[0m[95m][0m Request body={"deadline": "2015-09-11T09:00:00+01:00", "description": "Task description 1", "title": "Task1"}
+[95m[[4mINFO[0m[95m][0m Response code=200
+[95m[[4mINFO[0m[95m][0m Response body={"title":"Task1","description":"Task description 1","deadline":"2015-09-11T09:00:00+01:00","id":1}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '98', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"62-LrH+ba1p+F4xKKC8tAtr2g"', 'Date': 'Sun, 24 Jan 2016 19:59:30 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mInvalid POST request 1[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks.json
+[95m[[4mINFO[0m[95m][0m Request method=POST
+[95m[[4mINFO[0m[95m][0m Request body={"deadline": "2015-09-11T09:00:00+01:00", "description": "Task description 1", "title": "Tas"}
+[95m[[4mINFO[0m[95m][0m Response code=400
+[95m[[4mINFO[0m[95m][0m Response body={"errorCode":400,"errorMessages":["Title must be a string between 4 and 64 characters"]}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '88', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"58-ZvANGgYEVZDxuvBSx4BaOw"', 'Date': 'Sun, 24 Jan 2016 19:59:30 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mInvalid POST request 2[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks.json
+[95m[[4mINFO[0m[95m][0m Request method=POST
+[95m[[4mINFO[0m[95m][0m Request body={"deadline": "2015-09-11T09:00:00+01:00", "description": "Task description 1", "title": "A very long title that doesn't repeat in order to be bigger than 64 characters."}
+[95m[[4mINFO[0m[95m][0m Response code=400
+[95m[[4mINFO[0m[95m][0m Response body={"errorCode":400,"errorMessages":["Title must be a string between 4 and 64 characters"]}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '88', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"58-ZvANGgYEVZDxuvBSx4BaOw"', 'Date': 'Sun, 24 Jan 2016 19:59:30 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mInvalid POST request 3[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks.json
+[95m[[4mINFO[0m[95m][0m Request method=POST
+[95m[[4mINFO[0m[95m][0m Request body={"deadline": "2015-09-11T09:00:00+01:00", "title": "Task1"}
+[95m[[4mINFO[0m[95m][0m Response code=400
+[95m[[4mINFO[0m[95m][0m Response body={"errorCode":400,"errorMessages":["Description must be a string between 0 and 255 characters"]}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '95', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"5f-2ykCUqiM8uLmPpJPbDYUJw"', 'Date': 'Sun, 24 Jan 2016 19:59:30 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mInvalid POST request 4[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks.json
+[95m[[4mINFO[0m[95m][0m Request method=POST
+[95m[[4mINFO[0m[95m][0m Request body={"deadline": "2015-09-11T09:00:00+01:00", "description": "A very long task description that repeats in order to be bigger than 255 characters. A very long task description that repeats in order to be bigger than 255 characters. A very long task description that repeats in order to be bigger than 255 characters. A very long task description that repeats in order to be bigger than 255 characters.", "title": "Task1"}
+[95m[[4mINFO[0m[95m][0m Response code=400
+[95m[[4mINFO[0m[95m][0m Response body={"errorCode":400,"errorMessages":["Description must be a string between 0 and 255 characters"]}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '95', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"5f-2ykCUqiM8uLmPpJPbDYUJw"', 'Date': 'Sun, 24 Jan 2016 19:59:30 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mInvalid POST request 5[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks.json
+[95m[[4mINFO[0m[95m][0m Request method=POST
+[95m[[4mINFO[0m[95m][0m Request body={"deadline": "2015/09/11", "description": "Task description 1", "title": "Task1"}
+[95m[[4mINFO[0m[95m][0m Response code=400
+[95m[[4mINFO[0m[95m][0m Response body={"errorCode":400,"errorMessages":["Date must be ISO8601 formatted string!"]}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '76', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"4c-02TpmzzcnzA6OvPHcky6Hg"', 'Date': 'Sun, 24 Jan 2016 19:59:30 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mInvalid POST request 6[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks.json
+[95m[[4mINFO[0m[95m][0m Request method=POST
+[95m[[4mINFO[0m[95m][0m Request body={"deadline": "", "description": "Task description 1", "title": "Task1"}
+[95m[[4mINFO[0m[95m][0m Response code=400
+[95m[[4mINFO[0m[95m][0m Response body={"errorCode":400,"errorMessages":["Date must be ISO8601 formatted string!"]}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '76', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"4c-02TpmzzcnzA6OvPHcky6Hg"', 'Date': 'Sun, 24 Jan 2016 19:59:30 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mValid POST request 2[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks.json
+[95m[[4mINFO[0m[95m][0m Request method=POST
+[95m[[4mINFO[0m[95m][0m Request body={"deadline": "2015-09-12T09:00:00+01:00", "description": "Task description 2", "title": "Task2"}
+[95m[[4mINFO[0m[95m][0m Response code=200
+[95m[[4mINFO[0m[95m][0m Response body={"title":"Task2","description":"Task description 2","deadline":"2015-09-12T09:00:00+01:00","id":2}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '98', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"62-ntUauhjsd5dKi38w6ZrNBw"', 'Date': 'Sun, 24 Jan 2016 19:59:30 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mPOST request with empty description[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks.json
+[95m[[4mINFO[0m[95m][0m Request method=POST
+[95m[[4mINFO[0m[95m][0m Request body={"deadline": "2015-09-13T09:00:00+01:00", "description": "", "title": "Task3"}
+[95m[[4mINFO[0m[95m][0m Response code=200
+[95m[[4mINFO[0m[95m][0m Response body={"title":"Task3","description":"","deadline":"2015-09-13T09:00:00+01:00","id":3}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '80', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"50-avBwaWP6re5XojbpAYQltw"', 'Date': 'Sun, 24 Jan 2016 19:59:31 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mHEAD request with 3 tasks[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks.json
+[95m[[4mINFO[0m[95m][0m Request method=HEAD
+[95m[[4mINFO[0m[95m][0m Response code=204
+[95m[[4mINFO[0m[95m][0m Response body=
+[95m[[4mINFO[0m[95m][0m Response headers={'Date': 'Sun, 24 Jan 2016 19:59:31 GMT', 'Connection': 'keep-alive', 'X-Count': '3', 'X-Powered-By': 'Express'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mTest GET request order[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks.json
+[95m[[4mINFO[0m[95m][0m Request method=GET
+[95m[[4mINFO[0m[95m][0m Response code=200
+[95m[[4mINFO[0m[95m][0m Response body=[{"id":3,"title":"Task3","description":"","deadline":"2015-09-13T09:00:00+01:00"},{"id":2,"title":"Task2","description":"Task description 2","deadline":"2015-09-12T09:00:00+01:00"},{"id":1,"title":"Task1","description":"Task description 1","deadline":"2015-09-11T09:00:00+01:00"}]
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '280', 'X-Count': '3', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"118-J90IVdzzJHbvtdY1mijvPQ"', 'Date': 'Sun, 24 Jan 2016 19:59:31 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [91mFail[0m
+Reason: Task array out of order
+------------------------------------------------------------------
+[95m[1mTest GET pagination[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks.json?page=2&pageSize=1
+[95m[[4mINFO[0m[95m][0m Request method=GET
+[95m[[4mINFO[0m[95m][0m Response code=200
+[95m[[4mINFO[0m[95m][0m Response body=[{"id":2,"title":"Task2","description":"Task description 2","deadline":"2015-09-12T09:00:00+01:00"}]
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '100', 'X-Count': '3', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"64-4Jm9HvOuN3gyMf6ouRtn5g"', 'Date': 'Sun, 24 Jan 2016 19:59:31 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mTest GET search[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks.json?q=task1
+[95m[[4mINFO[0m[95m][0m Request method=GET
+[95m[[4mINFO[0m[95m][0m Response code=200
+[95m[[4mINFO[0m[95m][0m Response body=[{"id":1,"title":"Task1","description":"Task description 1","deadline":"2015-09-11T09:00:00+01:00"}]
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '100', 'X-Count': '1', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"64-yVCE2emQA7WZP4ExE4Ogmw"', 'Date': 'Sun, 24 Jan 2016 19:59:31 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mTask GET request[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks/3.json
+[95m[[4mINFO[0m[95m][0m Request method=GET
+[95m[[4mINFO[0m[95m][0m Response code=200
+[95m[[4mINFO[0m[95m][0m Response body={"id":3,"title":"Task3","description":"","deadline":"2015-09-13T09:00:00+01:00"}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '80', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"50-oCjT8F99WRR07Mqp7pEB8g"', 'Date': 'Sun, 24 Jan 2016 19:59:31 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mTask GET with bad id[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks/982.json
+[95m[[4mINFO[0m[95m][0m Request method=GET
+[95m[[4mINFO[0m[95m][0m Response code=404
+[95m[[4mINFO[0m[95m][0m Response body={"errorCode":404,"errorMessages":["Task 982 does not exist!"]}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '62', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"3e-XkhY1YkBvsuAPEN7c4w83A"', 'Date': 'Sun, 24 Jan 2016 19:59:31 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mTask OPTIONS request[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks/1.json
+[95m[[4mINFO[0m[95m][0m Request method=OPTIONS
+[95m[[4mINFO[0m[95m][0m Response code=204
+[95m[[4mINFO[0m[95m][0m Response body=
+[95m[[4mINFO[0m[95m][0m Response headers={'Date': 'Sun, 24 Jan 2016 19:59:31 GMT', 'Connection': 'keep-alive', 'ETag': 'W/"2-mZFLkyvTelC5g8XnyQrpOw"', 'Allow': 'OPTIONS,GET,PUT,PATCH,DELETE', 'X-Powered-By': 'Express'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mTask OPTIONS with bad id[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks/88.json
+[95m[[4mINFO[0m[95m][0m Request method=OPTIONS
+[95m[[4mINFO[0m[95m][0m Response code=404
+[95m[[4mINFO[0m[95m][0m Response body={"errorCode":404,"errorMessages":["Task 88 does not exist!"]}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '61', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"3d-yjIT2pImXeFIfxRLkHy2/g"', 'Date': 'Sun, 24 Jan 2016 19:59:31 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mValid PUT request[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks/3.json
+[95m[[4mINFO[0m[95m][0m Request method=PUT
+[95m[[4mINFO[0m[95m][0m Request body={"deadline": "2015-09-13T09:00:00+01:00", "description": "", "title": "Task3.1"}
+[95m[[4mINFO[0m[95m][0m Response code=200
+[95m[[4mINFO[0m[95m][0m Response body={"id":3,"title":"Task3.1","description":"","deadline":"2015-09-13T09:00:00+01:00"}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '82', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"52-Rt5SCp+HInpj1ZMH9qRmCQ"', 'Date': 'Sun, 24 Jan 2016 19:59:31 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mTask PUT with missing property[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks/3.json
+[95m[[4mINFO[0m[95m][0m Request method=PUT
+[95m[[4mINFO[0m[95m][0m Request body={"deadline": "2015-09-13T09:00:00+01:00", "title": "Task3.1"}
+[95m[[4mINFO[0m[95m][0m Response code=400
+[95m[[4mINFO[0m[95m][0m Response body={"errorCode":400,"errorMessages":["Description must be a string between 0 and 255 characters"]}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '95', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"5f-2ykCUqiM8uLmPpJPbDYUJw"', 'Date': 'Sun, 24 Jan 2016 19:59:31 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mTask PUT with invalid property[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks/3.json
+[95m[[4mINFO[0m[95m][0m Request method=PUT
+[95m[[4mINFO[0m[95m][0m Request body={"deadline": "2015-09-13T09:00:00+01:00", "description": "", "title": "T"}
+[95m[[4mINFO[0m[95m][0m Response code=400
+[95m[[4mINFO[0m[95m][0m Response body={"errorCode":400,"errorMessages":["Title must be a string between 4 and 64 characters"]}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '88', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"58-ZvANGgYEVZDxuvBSx4BaOw"', 'Date': 'Sun, 24 Jan 2016 19:59:31 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mTask PUT with bad id[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks/88.json
+[95m[[4mINFO[0m[95m][0m Request method=PUT
+[95m[[4mINFO[0m[95m][0m Request body={"deadline": "2015-09-13T09:00:00+01:00", "description": "", "title": "Task3.1"}
+[95m[[4mINFO[0m[95m][0m Response code=404
+[95m[[4mINFO[0m[95m][0m Response body={"errorCode":404,"errorMessages":["Task 88 not found."]}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '56', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"38-JVAgt1pEqc6B2tZOV6iGtQ"', 'Date': 'Sun, 24 Jan 2016 19:59:31 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mValid PATCH request[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks/2.json
+[95m[[4mINFO[0m[95m][0m Request method=PATCH
+[95m[[4mINFO[0m[95m][0m Request body={"title": "Task2.1"}
+[95m[[4mINFO[0m[95m][0m Response code=200
+[95m[[4mINFO[0m[95m][0m Response body={"id":2,"title":"Task2.1","description":"Task description 2","deadline":"2015-09-12T09:00:00+01:00"}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '100', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"64-Nrl1TeLemN1c57oHF8/cSg"', 'Date': 'Sun, 24 Jan 2016 19:59:31 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mTask PATCH with invalid property[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks/2.json
+[95m[[4mINFO[0m[95m][0m Request method=PATCH
+[95m[[4mINFO[0m[95m][0m Request body={"title": "T"}
+[95m[[4mINFO[0m[95m][0m Response code=400
+[95m[[4mINFO[0m[95m][0m Response body={"errorCode":400,"errorMessages":["Title must be a string between 4 and 64 characters"]}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '88', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"58-ZvANGgYEVZDxuvBSx4BaOw"', 'Date': 'Sun, 24 Jan 2016 19:59:31 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mTask PATCH with bad id[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks/88.json
+[95m[[4mINFO[0m[95m][0m Request method=PATCH
+[95m[[4mINFO[0m[95m][0m Request body={"title": "Task2.1"}
+[95m[[4mINFO[0m[95m][0m Response code=404
+[95m[[4mINFO[0m[95m][0m Response body={"errorCode":404,"errorMessages":["Task 88 not found."]}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '56', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"38-JVAgt1pEqc6B2tZOV6iGtQ"', 'Date': 'Sun, 24 Jan 2016 19:59:31 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mValid DELETE request[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks/2.json
+[95m[[4mINFO[0m[95m][0m Request method=DELETE
+[95m[[4mINFO[0m[95m][0m Response code=200
+[95m[[4mINFO[0m[95m][0m Response body={"id":2,"title":"Task2.1","description":"Task description 2","deadline":"2015-09-12T09:00:00+01:00"}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '100', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"64-Nrl1TeLemN1c57oHF8/cSg"', 'Date': 'Sun, 24 Jan 2016 19:59:31 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks/2.json
+[95m[[4mINFO[0m[95m][0m Request method=GET
+[95m[[4mINFO[0m[95m][0m Response code=404
+[95m[[4mINFO[0m[95m][0m Response body={"errorCode":404,"errorMessages":["Task 2 does not exist!"]}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '60', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"3c-hoGEvgUlGQLD5p5AShkXzg"', 'Date': 'Sun, 24 Jan 2016 19:59:31 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[95m[1mTask DELETE with bad id[0m
+------------------------------------------------------------------
+[95m[[4mINFO[0m[95m][0m Request url=http://localhost:7000/tasks/88.json
+[95m[[4mINFO[0m[95m][0m Request method=DELETE
+[95m[[4mINFO[0m[95m][0m Response code=404
+[95m[[4mINFO[0m[95m][0m Response body={"errorCode":404,"errorMessages":["Task 88 not found."]}
+[95m[[4mINFO[0m[95m][0m Response headers={'Content-Length': '56', 'X-Powered-By': 'Express', 'Connection': 'keep-alive', 'ETag': 'W/"38-JVAgt1pEqc6B2tZOV6iGtQ"', 'Date': 'Sun, 24 Jan 2016 19:59:31 GMT', 'Content-Type': 'application/json; charset=utf-8'}
+Status: [92mSuccess[0m
+------------------------------------------------------------------
+[1m[91mFailed: 1[92m Succeeded: 30[0m
+------------------------------------------------------------------
